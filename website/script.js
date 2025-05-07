@@ -1,64 +1,64 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Particle.js initialization - More professional configuration
+    // Particle.js initialization - Elegant flowing lines configuration
     if (typeof particlesJS !== 'undefined') {
         particlesJS('particles-js', {
             particles: {
                 number: {
-                    value: 50,
+                    value: 80,
                     density: {
                         enable: true,
-                        value_area: 1000
+                        value_area: 1500
                     }
                 },
                 color: {
-                    value: ["#6d2eb5", "#8a49d7", "#a57fe2", "#ff4ecd", "#fe7ad6"]
+                    value: ["#8860d0", "#5ab9ea", "#c1c8e4", "#84ceeb", "#5680e9"]
                 },
                 shape: {
-                    type: "circle",
+                    type: ["circle", "edge"],
                     stroke: {
                         width: 0,
                         color: "#000000"
                     }
                 },
                 opacity: {
-                    value: 0.3,
+                    value: 0.2,
                     random: true,
                     anim: {
                         enable: true,
-                        speed: 0.5,
-                        opacity_min: 0.1,
+                        speed: 0.3,
+                        opacity_min: 0.05,
                         sync: false
                     }
                 },
                 size: {
-                    value: 2,
+                    value: 1.8,
                     random: true,
                     anim: {
                         enable: true,
-                        speed: 2,
-                        size_min: 0.1,
+                        speed: 1,
+                        size_min: 0.3,
                         sync: false
                     }
                 },
                 line_linked: {
                     enable: true,
-                    distance: 150,
-                    color: "#8a49d7",
-                    opacity: 0.2,
+                    distance: 200,
+                    color: "#a67ce9",
+                    opacity: 0.15,
                     width: 1
                 },
                 move: {
                     enable: true,
-                    speed: 1,
+                    speed: 0.8,
                     direction: "none",
                     random: true,
                     straight: false,
-                    out_mode: "bounce",
+                    out_mode: "out",
                     bounce: false,
                     attract: {
                         enable: true,
-                        rotateX: 600,
-                        rotateY: 1200
+                        rotateX: 800,
+                        rotateY: 800
                     }
                 }
             },
@@ -67,34 +67,34 @@ document.addEventListener('DOMContentLoaded', function() {
                 events: {
                     onhover: {
                         enable: true,
-                        mode: "bubble"
+                        mode: "grab"
                     },
                     onclick: {
                         enable: true,
-                        mode: "repulse"
+                        mode: "push"
                     },
                     resize: true
                 },
                 modes: {
                     grab: {
-                        distance: 150,
+                        distance: 140,
                         line_linked: {
-                            opacity: 0.3
+                            opacity: 0.35
                         }
                     },
                     bubble: {
-                        distance: 150,
-                        size: 4,
+                        distance: 200,
+                        size: 3.5,
                         duration: 2,
-                        opacity: 0.6,
+                        opacity: 0.8,
                         speed: 3
                     },
                     repulse: {
-                        distance: 200,
+                        distance: 150,
                         duration: 0.4
                     },
                     push: {
-                        particles_nb: 4
+                        particles_nb: 3
                     },
                     remove: {
                         particles_nb: 2
