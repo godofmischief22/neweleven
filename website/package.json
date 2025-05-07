@@ -1,0 +1,12 @@
+{
+  "name": "eleven-website",
+  "version": "1.0.0",
+  "description": "Website for ELEVEN Discord Music Bot",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}

@@ -130,6 +130,12 @@ class Main extends Client {
             },
             new Connectors.DiscordJS(this),
             this.config.Nodes,
+            {
+                resume: true,
+                resumeTimeout: 30,
+                reconnectTries: 5,
+                restTimeout: 10000,
+            }
         );
         return this.dispatcher;
     }

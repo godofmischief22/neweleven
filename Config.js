@@ -25,15 +25,17 @@ module.exports = {
     Owners: ["1131806691969728593"],
     Nodes: [
     {
-        name: "v3node",
-        url: "v3.ajieblogs.eu.org:80", 
+        name: "AjieNode1",
+        url: "lava-v3.ajieblogs.eu.org",
+        port: 443,
         auth: "https://dsc.gg/ajidevserver",
-        secure: false,
+        secure: true,
     },
     {
-        name: "Node 2",
-        url: "node.lavalink.kronix.party:2333",
-        auth: "kronix",
+        name: "AjieNode2",
+        url: "lava-v3.ajieblogs.eu.org",
+        port: 80,
+        auth: "https://dsc.gg/ajidevserver",
         secure: false,
     }
 ],

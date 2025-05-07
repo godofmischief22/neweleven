@@ -16,6 +16,10 @@ author = "agent"
 task = "workflow.run"
 args = "Discord Music Bot"
 
+[[workflows.workflow.tasks]]
+task = "workflow.run"
+args = "ELEVEN Website"
+
 [[workflows.workflow]]
 name = "Discord Music Bot"
 author = "agent"
@@ -24,5 +28,18 @@ author = "agent"
 task = "shell.exec"
 args = "node Shard.js"
 
+[[workflows.workflow]]
+name = "ELEVEN Website"
+author = "agent"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "cd website && npm install && npm start"
+waitForPort = 5000
+
 [deployment]
 run = ["sh", "-c", "npm install discord.js @discordjs/voice play-dl ffmpeg-static sodium && node index.js"]
+
+[[ports]]
+localPort = 5000
+externalPort = 80

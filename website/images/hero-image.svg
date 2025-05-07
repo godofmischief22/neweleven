@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="500" height="500" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="heroGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#6d2eb5" />
+      <stop offset="100%" stop-color="#ff4ecd" />
+    </linearGradient>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="5" result="blur" />
+      <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7" result="glow" />
+      <feBlend in="SourceGraphic" in2="glow" mode="normal" />
+    </filter>
+  </defs>
+  
+  <!-- Background Elements -->
+  <circle cx="250" cy="250" r="120" fill="rgba(109, 46, 181, 0.1)" />
+  <circle cx="250" cy="250" r="180" fill="none" stroke="rgba(109, 46, 181, 0.05)" stroke-width="15" />
+  <circle cx="250" cy="250" r="230" fill="none" stroke="rgba(255, 78, 205, 0.05)" stroke-width="10" />
+  
+  <!-- Discord Logo -->
+  <path d="M340 170C340 170 320 155 295 150L292.5 155C315 161.25 325 172.5 335 185C315 175 295 170 275 167.5C260 165 245 165 230 167.5C220 168.75 205 172.5 190 180C182.5 183.75 178.75 186.25 178.75 186.25C178.75 186.25 190 172.5 211.25 165L210 160C185 165 165 180 165 180C165 180 140 217.5 140 265C140 265 157.5 292.5 195 295C195 295 201.25 287.5 206.25 281.25C186.25 275 178.75 261.25 178.75 261.25C178.75 261.25 181.25 263.75 186.25 266.25C186.25 266.25 186.25 267.5 187.5 267.5C187.5 267.5 188.75 267.5 188.75 268.75C193.75 271.25 198.75 272.5 203.75 273.75C211.25 276.25 220 277.5 230 278.75C243.75 280 258.75 278.75 275 275C285 272.5 295 268.75 306.25 262.5C316.25 257.5 325 250 325 250C325 250 316.25 265 297.5 271.25C302.5 277.5 308.75 285 308.75 285C346.25 282.5 363.75 255 363.75 255C363.75 207.5 340 170 340 170ZM211.25 255C201.25 255 193.75 246.25 193.75 235C193.75 223.75 201.25 215 211.25 215C221.25 215 228.75 223.75 228.75 235C228.75 246.25 221.25 255 211.25 255ZM290 255C280 255 272.5 246.25 272.5 235C272.5 223.75 280 215 290 215C300 215 307.5 223.75 307.5 235C307.5 246.25 300 255 290 255Z" fill="url(#heroGradient)" filter="url(#glow)" />
+  
+  <!-- Musical Elements -->
+  <circle cx="125" cy="150" r="20" fill="url(#heroGradient)" opacity="0.8" />
+  <rect x="120" y="170" width="10" height="100" fill="url(#heroGradient)" opacity="0.8" />
+  
+  <circle cx="375" cy="180" r="20" fill="url(#heroGradient)" opacity="0.8" />
+  <rect x="370" y="200" width="10" height="100" fill="url(#heroGradient)" opacity="0.8" />
+  
+  <path d="M100 350C100 350 150 320 170 320C190 320 190 350 170 350C150 350 130 380 130 400C130 420 150 430 170 430C190 430 210 410 210 410" stroke="url(#heroGradient)" stroke-width="8" fill="none" stroke-linecap="round" />
+  
+  <path d="M390 320C390 320 340 350 320 350C300 350 300 320 320 320C340 320 360 350 360 370C360 390 340 400 320 400C300 400 280 380 280 380" stroke="url(#heroGradient)" stroke-width="8" fill="none" stroke-linecap="round" />
+  
+  <!-- Sound Waves -->
+  <path d="M110 260C110 260 90 230 110 200" stroke="url(#heroGradient)" stroke-width="4" fill="none" stroke-linecap="round" />
+  <path d="M90 270C90 270 60 230 90 190" stroke="url(#heroGradient)" stroke-width="4" fill="none" stroke-linecap="round" />
+  <path d="M70 280C70 280 30 230 70 180" stroke="url(#heroGradient)" stroke-width="4" fill="none" stroke-linecap="round" />
+  
+  <path d="M390 260C390 260 410 230 390 200" stroke="url(#heroGradient)" stroke-width="4" fill="none" stroke-linecap="round" />
+  <path d="M410 270C410 270 440 230 410 190" stroke="url(#heroGradient)" stroke-width="4" fill="none" stroke-linecap="round" />
+  <path d="M430 280C430 280 470 230 430 180" stroke="url(#heroGradient)" stroke-width="4" fill="none" stroke-linecap="round" />
+</svg>

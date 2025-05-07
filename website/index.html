@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ELEVEN - Discord Music Bot</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="particles-container" id="particles-js"></div>
+    
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="./images/logo.png" alt="ELEVEN Logo">
+                <span>ELEVEN</span>
+            </div>
+            <div class="nav-links">
+                <a href="#home" class="active">Home</a>
+                <a href="#features">Features</a>
+                <a href="#commands">Commands</a>
+                <a href="#premium">Premium</a>
+                <a href="#support">Support</a>
+            </div>
+            <div class="invite-btn-container">
+                <a href="https://discord.com/oauth2/authorize?client_id=1365958278026104832&permissions=8&integration_type=0&scope=bot+applications.commands" class="invite-btn" target="_blank">Invite Bot</a>
+            </div>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>ELEVEN <span class="gradient-text">Music Bot</span></h1>
+            <p>A feature-rich Discord music bot with high-quality audio playback, filters, and seamless integration</p>
+            <div class="hero-btns">
+                <a href="https://discord.com/oauth2/authorize?client_id=1365958278026104832&permissions=8&integration_type=0&scope=bot+applications.commands" class="primary-btn" target="_blank">
+                    <i class="fab fa-discord"></i> Add to Discord
+                </a>
+                <a href="#features" class="secondary-btn">
+                    <i class="fas fa-info-circle"></i> Learn More
+                </a>
+            </div>
+        </div>
+        <div class="hero-image">
+            <img src="./images/hero-image.png" alt="Bot Preview">
+        </div>
+    </section>
+
+    <section id="features" class="features">
+        <div class="section-header">
+            <h2>Amazing <span class="gradient-text">Features</span></h2>
+            <p>Discover what makes ELEVEN the best music bot for your Discord server</p>
+        </div>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-music"></i>
+                </div>
+                <h3>High-Quality Audio</h3>
+                <p>Crystal clear audio with adjustable quality and volume controls</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-sliders-h"></i>
+                </div>
+                <h3>Audio Filters</h3>
+                <p>Enhance your music with bass boost, nightcore, 8D, and more effects</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-list"></i>
+                </div>
+                <h3>Advanced Playlists</h3>
+                <p>Create, save, and load your favorite playlists anytime</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-search"></i>
+                </div>
+                <h3>Multiple Sources</h3>
+                <p>Play music from YouTube, Spotify, SoundCloud, and more platforms</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-robot"></i>
+                </div>
+                <h3>AI DJ Mode</h3>
+                <p>Let our AI suggest similar songs and keep the music playing</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-cog"></i>
+                </div>
+                <h3>Custom Settings</h3>
+                <p>Tailor ELEVEN to your server with custom prefixes and settings</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="stats" class="statistics">
+        <div class="stat-card">
+            <h3>500+</h3>
+            <p>Servers</p>
+        </div>
+        <div class="stat-card">
+            <h3>100,000+</h3>
+            <p>Users</p>
+        </div>
+        <div class="stat-card">
+            <h3>1M+</h3>
+            <p>Songs Played</p>
+        </div>
+        <div class="stat-card">
+            <h3>99.9%</h3>
+            <p>Uptime</p>
+        </div>
+    </section>
+
+    <section id="commands" class="commands">
+        <div class="section-header">
+            <h2>Popular <span class="gradient-text">Commands</span></h2>
+            <p>Here are some of the most used commands to get you started</p>
+        </div>
+
+        <div class="commands-container">
+            <div class="command-category">
+                <h3>Music Controls</h3>
+                <div class="command-list">
+                    <div class="command-item">
+                        <div class="command-name">.play [song]</div>
+                        <div class="command-desc">Play a song from YouTube, Spotify, or URL</div>
+                    </div>
+                    <div class="command-item">
+                        <div class="command-name">.skip</div>
+                        <div class="command-desc">Skip to the next song in the queue</div>
+                    </div>
+                    <div class="command-item">
+                        <div class="command-name">.stop</div>
+                        <div class="command-desc">Stop playback and clear the queue</div>
+                    </div>
+                    <div class="command-item">
+                        <div class="command-name">.loop</div>
+                        <div class="command-desc">Toggle looping for current song or queue</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="command-category">
+                <h3>Queue Management</h3>
+                <div class="command-list">
+                    <div class="command-item">
+                        <div class="command-name">.queue</div>
+                        <div class="command-desc">View the current music queue</div>
+                    </div>
+                    <div class="command-item">
+                        <div class="command-name">.clear</div>
+                        <div class="command-desc">Clear the current queue</div>
+                    </div>
+                    <div class="command-item">
+                        <div class="command-name">.shuffle</div>
+                        <div class="command-desc">Shuffle the songs in the queue</div>
+                    </div>
+                    <div class="command-item">
+                        <div class="command-name">.remove [position]</div>
+                        <div class="command-desc">Remove a specific song from the queue</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="command-category">
+                <h3>Audio Effects</h3>
+                <div class="command-list">
+                    <div class="command-item">
+                        <div class="command-name">.filter [effect]</div>
+                        <div class="command-desc">Apply audio filters like bassboost, nightcore, etc.</div>
+                    </div>
+                    <div class="command-item">
+                        <div class="command-name">.volume [0-150]</div>
+                        <div class="command-desc">Adjust the playback volume</div>
+                    </div>
+                    <div class="command-item">
+                        <div class="command-name">.ai-dj</div>
+                        <div class="command-desc">Activate AI-powered music recommendations</div>
+                    </div>
+                    <div class="command-item">
+                        <div class="command-name">.clearfilter</div>
+                        <div class="command-desc">Remove all active filters</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="commands-btn">
+            <a href="#" class="primary-btn" id="show-more-commands">
+                View All Commands
+            </a>
+        </div>
+    </section>
+
+    <section id="premium" class="premium">
+        <div class="section-header">
+            <h2>Upgrade to <span class="gradient-text">Premium</span></h2>
+            <p>Unlock exclusive features and enhanced performance</p>
+        </div>
+
+        <div class="pricing-cards">
+            <div class="pricing-card free">
+                <div class="plan-name">Free</div>
+                <div class="price">$0<span>/forever</span></div>
+                <ul class="features-list">
+                    <li><i class="fas fa-check"></i> High-quality music</li>
+                    <li><i class="fas fa-check"></i> Basic audio filters</li>
+                    <li><i class="fas fa-check"></i> Queue management</li>
+                    <li><i class="fas fa-check"></i> YouTube, Spotify support</li>
+                    <li class="disabled"><i class="fas fa-times"></i> 24/7 playback</li>
+                    <li class="disabled"><i class="fas fa-times"></i> Advanced filters</li>
+                    <li class="disabled"><i class="fas fa-times"></i> Priority support</li>
+                </ul>
+                <a href="https://discord.com/oauth2/authorize?client_id=1365958278026104832&permissions=8&integration_type=0&scope=bot+applications.commands" class="plan-btn" target="_blank">Get Started</a>
+            </div>
+
+            <div class="pricing-card premium">
+                <div class="recommended">Recommended</div>
+                <div class="plan-name">Premium</div>
+                <div class="price">$4.99<span>/month</span></div>
+                <ul class="features-list">
+                    <li><i class="fas fa-check"></i> All free features</li>
+                    <li><i class="fas fa-check"></i> 24/7 uninterrupted playback</li>
+                    <li><i class="fas fa-check"></i> Advanced audio filters</li>
+                    <li><i class="fas fa-check"></i> Unlimited playlists</li>
+                    <li><i class="fas fa-check"></i> AI DJ mode</li>
+                    <li><i class="fas fa-check"></i> Audio visualizations</li>
+                    <li><i class="fas fa-check"></i> Priority support</li>
+                </ul>
+                <a href="#" class="plan-btn">Upgrade Now</a>
+            </div>
+
+            <div class="pricing-card lifetime">
+                <div class="plan-name">Lifetime</div>
+                <div class="price">$49.99<span>/once</span></div>
+                <ul class="features-list">
+                    <li><i class="fas fa-check"></i> All premium features</li>
+                    <li><i class="fas fa-check"></i> Lifetime access</li>
+                    <li><i class="fas fa-check"></i> Early access to new features</li>
+                    <li><i class="fas fa-check"></i> Custom bot setup assistance</li>
+                    <li><i class="fas fa-check"></i> VIP support</li>
+                    <li><i class="fas fa-check"></i> Up to 3 server premium</li>
+                    <li><i class="fas fa-check"></i> No monthly payments</li>
+                </ul>
+                <a href="#" class="plan-btn">Buy Lifetime</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="support" class="support">
+        <div class="section-header">
+            <h2>Need <span class="gradient-text">Help?</span></h2>
+            <p>Join our community or contact our support team</p>
+        </div>
+
+        <div class="support-options">
+            <div class="support-card">
+                <div class="support-icon">
+                    <i class="fab fa-discord"></i>
+                </div>
+                <h3>Join Our Discord</h3>
+                <p>Get help from the community and stay updated with the latest news</p>
+                <a href="https://discord.gg/ZRXSwG3Xb6" class="support-btn" target="_blank">Join Server</a>
+            </div>
+
+            <div class="support-card">
+                <div class="support-icon">
+                    <i class="fas fa-envelope"></i>
+                </div>
+                <h3>Email Support</h3>
+                <p>Contact our support team directly for personalized assistance</p>
+                <a href="mailto:support@elevenmusicbot.com" class="support-btn">Send Email</a>
+            </div>
+
+            <div class="support-card">
+                <div class="support-icon">
+                    <i class="fas fa-book"></i>
+                </div>
+                <h3>Documentation</h3>
+                <p>Browse our comprehensive guides and documentation</p>
+                <a href="#" class="support-btn">Read Docs</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <img src="./images/logo.png" alt="ELEVEN Logo">
+                <h3>ELEVEN</h3>
+                <p>The ultimate Discord music experience</p>
+                <div class="social-links">
+                    <a href="#" target="_blank"><i class="fab fa-discord"></i></a>
+                    <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+                    <a href="#" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-links">
+                <div class="link-group">
+                    <h4>Navigation</h4>
+                    <a href="#home">Home</a>
+                    <a href="#features">Features</a>
+                    <a href="#commands">Commands</a>
+                    <a href="#premium">Premium</a>
+                    <a href="#support">Support</a>
+                </div>
+
+                <div class="link-group">
+                    <h4>Resources</h4>
+                    <a href="#">Documentation</a>
+                    <a href="#">Status</a>
+                    <a href="#">FAQ</a>
+                    <a href="#">Blog</a>
+                </div>
+
+                <div class="link-group">
+                    <h4>Legal</h4>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Cookies</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2025 ELEVEN Music Bot. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <div class="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
