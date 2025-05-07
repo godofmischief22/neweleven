@@ -1,44 +1,41 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Particle.js initialization
+    // Particle.js initialization - More professional configuration
     if (typeof particlesJS !== 'undefined') {
         particlesJS('particles-js', {
             particles: {
                 number: {
-                    value: 80,
+                    value: 50,
                     density: {
                         enable: true,
-                        value_area: 800
+                        value_area: 1000
                     }
                 },
                 color: {
-                    value: "#6d2eb5"
+                    value: ["#6d2eb5", "#8a49d7", "#a57fe2", "#ff4ecd", "#fe7ad6"]
                 },
                 shape: {
                     type: "circle",
                     stroke: {
                         width: 0,
                         color: "#000000"
-                    },
-                    polygon: {
-                        nb_sides: 5
                     }
                 },
                 opacity: {
-                    value: 0.5,
-                    random: false,
+                    value: 0.3,
+                    random: true,
                     anim: {
-                        enable: false,
-                        speed: 1,
+                        enable: true,
+                        speed: 0.5,
                         opacity_min: 0.1,
                         sync: false
                     }
                 },
                 size: {
-                    value: 3,
+                    value: 2,
                     random: true,
                     anim: {
-                        enable: false,
-                        speed: 40,
+                        enable: true,
+                        speed: 2,
                         size_min: 0.1,
                         sync: false
                     }
@@ -46,20 +43,20 @@ document.addEventListener('DOMContentLoaded', function() {
                 line_linked: {
                     enable: true,
                     distance: 150,
-                    color: "#6d2eb5",
-                    opacity: 0.4,
+                    color: "#8a49d7",
+                    opacity: 0.2,
                     width: 1
                 },
                 move: {
                     enable: true,
-                    speed: 2,
+                    speed: 1,
                     direction: "none",
-                    random: false,
+                    random: true,
                     straight: false,
-                    out_mode: "out",
+                    out_mode: "bounce",
                     bounce: false,
                     attract: {
-                        enable: false,
+                        enable: true,
                         rotateX: 600,
                         rotateY: 1200
                     }
@@ -70,26 +67,26 @@ document.addEventListener('DOMContentLoaded', function() {
                 events: {
                     onhover: {
                         enable: true,
-                        mode: "grab"
+                        mode: "bubble"
                     },
                     onclick: {
                         enable: true,
-                        mode: "push"
+                        mode: "repulse"
                     },
                     resize: true
                 },
                 modes: {
                     grab: {
-                        distance: 140,
+                        distance: 150,
                         line_linked: {
-                            opacity: 1
+                            opacity: 0.3
                         }
                     },
                     bubble: {
-                        distance: 400,
-                        size: 40,
+                        distance: 150,
+                        size: 4,
                         duration: 2,
-                        opacity: 8,
+                        opacity: 0.6,
                         speed: 3
                     },
                     repulse: {
