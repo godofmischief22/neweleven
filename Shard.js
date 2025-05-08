@@ -1,6 +1,21 @@
 const { Token } = require("./Config");
 const { ShardingManager } = require("discord.js");
 const log = require("./Utility/Console");
+
+// Express server setup for Render
+const express = require('express');
+const app = express();
+const port = process.env.PORT || 3000;
+
+app.get('/', (req, res) => {
+    res.send('Bot is running!');
+});
+
+app.listen(port, () => {
+    console.log(`Web server is listening on port ${port}`);
+});
+
+// ShardingManager setup
 const manager = new ShardingManager("./Main.js", {
     respawn: true,
     autoSpawn: true,
