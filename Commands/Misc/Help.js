@@ -150,7 +150,7 @@ module.exports = new Object({
         } else {
             const embed = client
                 .embed()
-                .setAuthor({name : `Help Menu`, url : `https://discord.gg/teamkronix`, iconURL : client.user.displayAvatarURL()})
+                .setAuthor({name : `Help Menu`, url : `https://discord.gg/ZRXSwG3Xb6`, iconURL : client.user.displayAvatarURL()})
                 .setThumbnail(message.author.displayAvatarURL())
                 .setDescription(
                     `
@@ -170,10 +170,10 @@ module.exports = new Object({
                 .setColor(color);
 
             const emojis = {
-                Music: `<:nmusic:1275390609749966921>`,
+                Music: `<:11music:1365989327674413077>`,
                 Filters: `<:11musicWaves:1365989818714292264>`,
                 Settings: `<:11utility:1365989914751270963>`,
-                Misc: `<:11misc:1288061620861534260>`,
+                Misc: `<:11misc:1365974952913928262>`,
                 Playlist: `<:11playlist:1365990144674631710>`,
                 Audiophile: `<:11audiophile:1365989462970077246>`
             };
