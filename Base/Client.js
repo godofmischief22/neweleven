@@ -52,11 +52,20 @@ class Main extends Client {
                 Partials.User,
                 Partials.Reaction,
             ],
-            ws: Intents,
-            presence: {
-                activities: [{ name: "1help | 1play", type: ActivityType.Listening }],
-                status: "idle",
-            },
+            this.once("ready", () => {
+    const statuses = [
+        { name: "Eleven", type: ActivityType.Watching },
+        { name: ".help | .play", type: ActivityType.Listening },
+        { name: "MUSIC", type: ActivityType.Playing },
+    ];
+
+    let index = 0;
+    setInterval(() => {
+        this.user.setActivity(statuses[index], "idle");
+        index = (index + 1) % statuses.length;
+    }, 10000);
+});
+
             restTimeOffset: 0,
             restRequestTimeout: 20000,
         });
@@ -163,3 +172,4 @@ class Main extends Client {
 }
 
 module.exports = { Main };
+    
