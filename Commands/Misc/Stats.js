@@ -59,7 +59,7 @@ module.exports = new Object({
                         },
                         {
                             name: "<:eg_discovery:1365996409500864562> Library",
-                            value: `> <:djs:1275458026337206313> **Discord.js :** v${require("discord.js").version}\n> <:js:1365996563528421388> **Node :** ${process.version}`,
+                            value: `> <:djs:1370258824627228672> **Discord.js :** v${require("discord.js").version}\n> <:js:1365996563528421388> **Node :** ${process.version}`,
                             inline: false,
                         },
                     ]),
