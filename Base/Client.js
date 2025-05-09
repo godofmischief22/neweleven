@@ -150,9 +150,9 @@ class Main extends Client {
     _setupPresence() {
         this.once("ready", () => {
             const activities = [
-                { name: "1help | 1play", type: ActivityType.Listening },
-                { name: "your music", type: ActivityType.Playing },
-                { name: "your server", type: ActivityType.Watching },
+                { name: ".help | .play", type: ActivityType.Listening },
+                { name: "Music", type: ActivityType.Playing },
+                { name: "Eleven", type: ActivityType.Watching },
             ];
 
             let index = 0;
