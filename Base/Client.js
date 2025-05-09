@@ -16,17 +16,6 @@ const { Kazagumo } = require("kazagumo");
 const { Connectors } = require("shoukaku");
 const PlayerExtends = require("./DispatcherExtend");
 
-const Intents = [
-    GatewayIntentBits.Guilds,
-    GatewayIntentBits.GuildMessages,
-    GatewayIntentBits.GuildMembers,
-    GatewayIntentBits.GuildInvites,
-    GatewayIntentBits.GuildVoiceStates,
-    GatewayIntentBits.GuildWebhooks,
-    GatewayIntentBits.MessageContent,
-    GatewayIntentBits.DirectMessages,
-];
-
 class Main extends Client {
     constructor() {
         super({
@@ -35,7 +24,16 @@ class Main extends Client {
                 parse: ["users", "roles", "everyone"],
                 repliedUser: false,
             },
-            intents: Intents,
+            intents: [
+                GatewayIntentBits.Guilds,
+                GatewayIntentBits.GuildMessages,
+                GatewayIntentBits.GuildMembers,
+                GatewayIntentBits.GuildInvites,
+                GatewayIntentBits.GuildVoiceStates,
+                GatewayIntentBits.GuildWebhooks,
+                GatewayIntentBits.MessageContent,
+                GatewayIntentBits.DirectMessages,
+            ],
             partials: [
                 Partials.Channel,
                 Partials.GuildMember,
@@ -43,10 +41,10 @@ class Main extends Client {
                 Partials.User,
                 Partials.Reaction,
             ],
-            ws: Intents,
             restTimeOffset: 0,
             restRequestTimeout: 20000,
         });
+
         this.Commands = new Collection();
         this.premiums = new Collection();
         this.ButtonInt = new Collection();
@@ -64,9 +62,12 @@ class Main extends Client {
         this.console = require("../Utility/Console");
         this.emoji = require("../Handler/Emoji");
         this.util = new Utils(this);
+
         if (!this.token) this.token = this.config.Token;
+
         this._loadPlayer();
         this._connectMongodb();
+        this._setupPresence(); // <- add this
         this.connect();
     }
 
@@ -145,22 +146,22 @@ class Main extends Client {
             require(`../Scripts/${files}`)(this);
         });
     }
+
+    _setupPresence() {
+        this.once("ready", () => {
+            const activities = [
+                { name: "1help | 1play", type: ActivityType.Listening },
+                { name: "your music", type: ActivityType.Playing },
+                { name: "your server", type: ActivityType.Watching },
+            ];
+
+            let index = 0;
+            setInterval(() => {
+                this.user.setActivity(activities[index]);
+                index = (index + 1) % activities.length;
+            }, 10000);
+        });
+    }
 }
-
-Main.prototype.once("ready", function () {
-    const statuses = [
-        { name: "Eleven", type: ActivityType.Watching },
-        { name: "1help | 1play", type: ActivityType.Listening },
-        { name: "MUSIC", type: ActivityType.Playing },
-    ];
-
-    let index = 0;
-    this.user.setStatus("idle");
-
-    setInterval(() => {
-        this.user.setActivity(statuses[index]);
-        index = (index + 1) % statuses.length;
-    }, 10000);
-});
 
 module.exports = { Main };
