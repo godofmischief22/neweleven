@@ -122,7 +122,7 @@ module.exports = {
                         ? `<:MekoStatusRole:1366022509358743593> Now Playing a Radio Station`
                         : isAIDJMode
                         ? `<:MekoStatusRole:1366022509358743593> Ai is Playing a Song`
-                        : `> <:MekoStatusRole:1275400008278999116> Now Playing **[${formattedTitle}](https://discord.gg/ZRXSwG3Xb6)**\n> <:Team:1366022453519712266> Requested by: ${requester}`;
+                        : `> <:MekoStatusRole:1366022509358743593> Now Playing **[${formattedTitle}](https://discord.gg/ZRXSwG3Xb6)**\n> <:Team:1366022453519712266> Requested by: ${requester}`;
 
                     const footerText = isRadioMode
                         ? `with love for all of you ~ aadarsh`
