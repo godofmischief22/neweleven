@@ -12,7 +12,7 @@ module.exports = {
     owner: true,
     async execute(client, message, args, prefix, color) {
 
-        const owners = ["747321055319949312"];
+        const owners = ["1131806691969728593"];
 
         if (!owners.includes(message.author.id)) {
             return message.channel.send({ 
