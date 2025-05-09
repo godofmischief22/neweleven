@@ -85,7 +85,7 @@ module.exports = {
     }
 
     const embedDescription = TwoFourSeven
-      ? `<:MekoTimer:1275458017055211703> Queue ended. 24/7 is **Enabled**, I am not leaving the voice channel.`
+      ? `<:MekoTimer:1365993627515617281> Queue ended. 24/7 is **Enabled**, I am not leaving the voice channel.`
       : `<:MekoTimer:1365993627515617281> Queue ended. 24/7 is **Disabled**, I am leaving the voice channel.`;
 
     try {
