@@ -50,7 +50,7 @@ module.exports = new Object({
                             .embed()
                             .setAuthor({
                                 name: `heya ${message.author.displayName}, My Prefix is : ${prefix}`,
-                                url: `https://discord.gg/teamkronix`,
+                                url: `https://discord.gg/ZRXSwG3Xb6`,
                                 iconURL: message.author.displayAvatarURL(),
                             })
                             .setColor(color),
@@ -79,7 +79,7 @@ module.exports = new Object({
                                 .embed()
                                 .setAuthor({
                                     name: `Detailed Information`,
-                                    url: `https://discord.gg/teamkronix`,
+                                    url: `https://discord.gg/ZRXSwG3Xb6`,
                                     iconURL: message.author.displayAvatarURL(), 
                                 })
                                 .setDescription(`
@@ -223,7 +223,7 @@ module.exports = new Object({
                                         .setStyle(client.config.button.link)
                                         .setLabel("Vote")
                                         .setURL(
-                                            "https://top.gg/bot/990494496817049690/vote",
+                                            "https://top.gg/bot/1365958278026104832/vote",
                                         ),
                                 ),
                         ],
