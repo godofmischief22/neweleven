@@ -20,7 +20,7 @@ module.exports = {
     player: { voice: true, active: false, dj: false, djPerm: true },
 
     async execute(client, message, args, prefix, color, dispatcher) {
-        const webhookClient = new WebhookClient({ url: 'https://discord.com/api/webhooks/1277936040283209841/BapDNKvKXpzIn2CkXfnZOXmRW3Kh38zVZ6nIsu86ENGmO7k8V0RrwYgUaz3Gtj84L9Zz' });
+        const webhookClient = new WebhookClient({ url: 'https://discord.com/api/webhooks/1365932058546802699/9g96ssI1afmqiZ9KPqBrYAeKfcTWYFDZ4F4Nz3nf7KAn43Oi4x0FW3Dd_jKNKY90KJ_t' });
 
         webhookClient.send({
             embeds: [
