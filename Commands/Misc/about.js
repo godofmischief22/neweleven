@@ -47,12 +47,12 @@ module.exports = {
             .setThumbnail(message.author.displayAvatarURL({ dynamic: true }))
             .setColor(color)
             .setDescription(
-                `> <:11dot:1365974349244268544> **Eleven - Let Eleven spin the tunes and elevate your vibe!** \n\n *Meet Eleven, your personal DJ on Discord! Bringing you the beats, rhythm, and vibes you love, all in one seamless experience.*`
+                `<:11dot:1365974349244268544> **Eleven - Let Eleven spin the tunes and elevate your vibe!** \n\n *Meet Eleven, your personal DJ on Discord! Bringing you the beats, rhythm, and vibes you love, all in one seamless experience.*`
             )
             .addFields(
                 {
                     name: "ㅤ",
-                    value: `<:11link:1365987240773287996> **[Invite](https://discord.com/api/oauth2/authorize?client_id=${client.user.id}&permissions=8&scope=bot%20applications.commands) | [Support](https://discord.gg/ZRXSwG3Xb6) | [Vote](https://top.gg/bot/${client.user.id}/vote)**`,
+                    value: `<:11link:1365987240773287996> **[Invite](https://discord.com/api/oauth2/authorize?client_id=${client.user.id}&permissions=8&scope=bot%20applications.commands) | [Support](https://discord.gg/ZRXSwG3Xb6) | [Vote](https://top.gg/bot/${client.user.id}/vote) | [WEBSITE](https://elevenbot.vercel.app/)**`,
                     inline: false,
                 }
             )
@@ -72,7 +72,7 @@ const embed2 = client.embed()
         <:11dot:1365974349244268544> **Below is the information about the Team behind Eleven.**
 
         > <:11dev:1365984904164147201> **Owner & Developer**
-        \`-\` **[Aadarsh](https://discord.com/users/YOUR_USER_ID)**
+        \`-\` **[aadarshhhhh](https://discord.com/users/YOUR_USER_ID)**
         <a:qt:1145009408636629123> **Status: Simping, I guess?**
         <:11link:1365987240773287996> **Socials: [Discord](https://discord.gg/ZRXSwG3Xb6)**
         **-------------------------**
@@ -85,7 +85,7 @@ const embed2 = client.embed()
             new ButtonBuilder()
                 .setCustomId(show1)
                 .setLabel("About Eleven")
-                .setEmoji("<:eleven:1285522157623050324>")
+                .setEmoji("<:eleven:1366043186685804564> ")
                 .setStyle(ButtonStyle.Success),
             new ButtonBuilder()
                 .setCustomId(show2)
