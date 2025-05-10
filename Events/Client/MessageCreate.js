@@ -73,13 +73,13 @@ module.exports = new Object({
         
                 collector.on('collect', async (interaction) => {
                     await interaction.reply({
-                        content: `https://discord.gg/teamkronix`,
+                        content: `https://discord.gg/ZRXSwG3Xb6`,
                         embeds: [
                             client
                                 .embed()
                                 .setAuthor({
                                     name: `Detailed Information`,
-                                    url: `https://discord.gg/ZRXSwG3Xb6`,
+                                    url: `https://discord.gg/teamkronix`,
                                     iconURL: message.author.displayAvatarURL(), 
                                 })
                                 .setDescription(`
@@ -223,7 +223,7 @@ module.exports = new Object({
                                         .setStyle(client.config.button.link)
                                         .setLabel("Vote")
                                         .setURL(
-                                            "https://top.gg/bot/1365958278026104832/vote",
+                                            "https://top.gg/bot/990494496817049690/vote",
                                         ),
                                 ),
                         ],
@@ -346,3 +346,4 @@ module.exports = new Object({
         }
     },
 });
+                
