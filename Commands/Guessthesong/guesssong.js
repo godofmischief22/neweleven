@@ -1,4 +1,4 @@
-const songs = require('../Data/guessSongs.json');
+const songs = require('../../Data/guessSongs.json');
 
 module.exports = {
   name: 'guesssong',
