@@ -1,4 +1,4 @@
-const songs = require('../../Data/guessSongs.json');
+const songs = require('../../Data/guessSongs.json'); // corrected path
 
 module.exports = {
   name: 'guesssong',
@@ -28,18 +28,5 @@ module.exports = {
     setTimeout(() => player.stop(), 10000); // Play only first 10 seconds
 
     const filter = msg => msg.channel.id === message.channel.id;
-    const collector = message.channel.createMessageCollector({ filter, time: 20000 });
-
-    collector.on('collect', msg => {
-      if (msg.content.toLowerCase().includes(song.title.toLowerCase())) {
-        collector.stop('guessed');
-        msg.reply(`Correct! The song was **${song.title}**`);
-      }
-    });
-
-    collector.on('end', (collected, reason) => {
-      if (reason !== 'guessed') message.channel.send(`Time's up! The song was **${song.title}**`);
-      player.destroy();
-    });
-  }
-};
+    const collector
+    
