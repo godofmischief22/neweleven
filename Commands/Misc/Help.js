@@ -29,7 +29,6 @@ module.exports = new Object({
                 "Misc",
                 "Playlist",
                 "Audiophile"
-                "Guessthesong"
             ];
             const categoryMap = {
                 music: "Music",
@@ -38,8 +37,7 @@ module.exports = new Object({
                 settings: "Settings",
                 config: "Settings",
                 misc: "Misc",
-                playlist: "Playlist"
-                guessthesong: "Guessthesong",
+                playlist: "Playlist",
             };
 
             if (Object.keys(categoryMap).includes(args[0].toLowerCase())) {
@@ -165,7 +163,6 @@ module.exports = new Object({
   - <:11utility:1365989914751270963> **Settings**
   - <:11misc:1365974952913928262> **Misc**
   - <:11playlist:1365990144674631710> **Playlist**
-  - <:11:1366012222220009586> **Guessthesong**
 
 > <:11dot:1365974349244268544> **Use the dropdown below to get more info**
                     `,
@@ -178,8 +175,7 @@ module.exports = new Object({
                 Settings: `<:11utility:1365989914751270963>`,
                 Misc: `<:11misc:1288061620861534260>`,
                 Playlist: `<:11playlist:1365990144674631710>`,
-                Audiophile: `<:11audiophile:1365989462970077246>` 
-                Guessthesong: `<:11:1366012222220009586>`
+                Audiophile: `<:11audiophile:1365989462970077246>`
             };
             const selectMenuArray = [];
 
@@ -236,4 +232,3 @@ module.exports = new Object({
         }
     },
 });
-                
