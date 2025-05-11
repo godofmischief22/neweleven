@@ -29,6 +29,7 @@ module.exports = new Object({
                 "Misc",
                 "Playlist",
                 "Audiophile"
+                "Guessthesong"
             ];
             const categoryMap = {
                 music: "Music",
@@ -37,7 +38,8 @@ module.exports = new Object({
                 settings: "Settings",
                 config: "Settings",
                 misc: "Misc",
-                playlist: "Playlist",
+                playlist: "Playlist"
+                guessthesong: "Guessthesong",
             };
 
             if (Object.keys(categoryMap).includes(args[0].toLowerCase())) {
@@ -150,7 +152,7 @@ module.exports = new Object({
         } else {
             const embed = client
                 .embed()
-                .setAuthor({name : `Help Menu`, url : `https://discord.gg/ZRXSwG3Xb6`, iconURL : client.user.displayAvatarURL()})
+                .setAuthor({name : `Help Menu`, url : `https://discord.gg/teamkronix`, iconURL : client.user.displayAvatarURL()})
                 .setThumbnail(message.author.displayAvatarURL())
                 .setDescription(
                     `
@@ -163,6 +165,7 @@ module.exports = new Object({
   - <:11utility:1365989914751270963> **Settings**
   - <:11misc:1365974952913928262> **Misc**
   - <:11playlist:1365990144674631710> **Playlist**
+  - <:11:1366012222220009586> **Guessthesong**
 
 > <:11dot:1365974349244268544> **Use the dropdown below to get more info**
                     `,
@@ -170,12 +173,13 @@ module.exports = new Object({
                 .setColor(color);
 
             const emojis = {
-                Music: `<:11music:1365989327674413077>`,
+                Music: `<:nmusic:1275390609749966921>`,
                 Filters: `<:11musicWaves:1365989818714292264>`,
                 Settings: `<:11utility:1365989914751270963>`,
-                Misc: `<:11misc:1365974952913928262>`,
+                Misc: `<:11misc:1288061620861534260>`,
                 Playlist: `<:11playlist:1365990144674631710>`,
-                Audiophile: `<:11audiophile:1365989462970077246>`
+                Audiophile: `<:11audiophile:1365989462970077246>` 
+                Guessthesong: `<:11:1366012222220009586>`
             };
             const selectMenuArray = [];
 
@@ -232,3 +236,4 @@ module.exports = new Object({
         }
     },
 });
+                
