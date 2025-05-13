@@ -16,6 +16,17 @@ const { Kazagumo } = require("kazagumo");
 const { Connectors } = require("shoukaku");
 const PlayerExtends = require("./DispatcherExtend");
 
+const Intents = [
+    GatewayIntentBits.Guilds,
+    GatewayIntentBits.GuildMessages,
+    GatewayIntentBits.GuildMembers,
+    GatewayIntentBits.GuildInvites,
+    GatewayIntentBits.GuildVoiceStates,
+    GatewayIntentBits.GuildWebhooks,
+    GatewayIntentBits.MessageContent,
+    GatewayIntentBits.DirectMessages,
+];
+
 class Main extends Client {
     constructor() {
         super({
@@ -24,16 +35,7 @@ class Main extends Client {
                 parse: ["users", "roles", "everyone"],
                 repliedUser: false,
             },
-            intents: [
-                GatewayIntentBits.Guilds,
-                GatewayIntentBits.GuildMessages,
-                GatewayIntentBits.GuildMembers,
-                GatewayIntentBits.GuildInvites,
-                GatewayIntentBits.GuildVoiceStates,
-                GatewayIntentBits.GuildWebhooks,
-                GatewayIntentBits.MessageContent,
-                GatewayIntentBits.DirectMessages,
-            ],
+            intents: Intents,
             partials: [
                 Partials.Channel,
                 Partials.GuildMember,
@@ -41,6 +43,11 @@ class Main extends Client {
                 Partials.User,
                 Partials.Reaction,
             ],
+            ws: Intents,
+            presence: {
+                activities: [{ name: "1help | 1play", type: ActivityType.Listening }],
+                status: "idle",
+            },
             restTimeOffset: 0,
             restRequestTimeout: 20000,
         });
@@ -57,7 +64,6 @@ class Main extends Client {
         this.color = this.config.EmbedColor;
         this.owners = this.config.Owners;
         this.np = ["1131806691969728593"];
-        this.dispatcher;
         this.Topgg = new Api(this.config.Api.Topgg);
         this.console = require("../Utility/Console");
         this.emoji = require("../Handler/Emoji");
@@ -67,7 +73,6 @@ class Main extends Client {
 
         this._loadPlayer();
         this._connectMongodb();
-        this._setupPresence(); // <- add this
         this.connect();
     }
 
@@ -104,12 +109,11 @@ class Main extends Client {
     }
 
     async _loadPlayer() {
-        this.dispatcher = new Kazagumo(
+        const kazagumo = new Kazagumo(
             {
                 defaultSearchEngine: "youtube_music",
                 extends: { player: PlayerExtends },
                 send: (guildId, payload) => {
-                    this.client = this;
                     const guild = this.guilds.cache.get(guildId);
                     if (guild) guild.shard.send(payload);
                 },
@@ -123,7 +127,8 @@ class Main extends Client {
                 restTimeout: 10000,
             }
         );
-        return this.dispatcher;
+
+        this.dispatcher = { kazagumo }; // Wrap kazagumo in dispatcher
     }
 
     async _connectMongodb() {
@@ -144,22 +149,6 @@ class Main extends Client {
         super.login(this.token);
         ["Button", "Message", "Events", "Node", "Dispatcher"].forEach((files) => {
             require(`../Scripts/${files}`)(this);
-        });
-    }
-
-    _setupPresence() {
-        this.once("ready", () => {
-            const activities = [
-                { name: ".help | .play", type: ActivityType.Listening },
-                { name: "Music", type: ActivityType.Playing },
-                { name: "Eleven", type: ActivityType.Watching },
-            ];
-
-            let index = 0;
-            setInterval(() => {
-                this.user.setActivity(activities[index]);
-                index = (index + 1) % activities.length;
-            }, 10000);
         });
     }
 }
