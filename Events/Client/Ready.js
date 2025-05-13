@@ -8,7 +8,7 @@ module.exports = {
     async execute(client) {
         client.console.log(`Logged in as ${client.user.tag}`, "api");
         // Wait for Lavalink node to be ready before resuming queues
-        client.dispatcher.kazagumo.shoukaku.on("ready", async (name) => {
+        client.dispatcher.shoukaku.on("ready", async (name) => {
             client.console.log(`[Node] ${name} is ready! Resuming queues...`, "player");
             const maindata = await db.find();
             client.console.log(
