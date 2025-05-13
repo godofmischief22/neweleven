@@ -18,22 +18,30 @@ module.exports = {
             for (const data of maindata) {
                 const index = maindata.indexOf(data);
                 setTimeout(async () => {
-                    const text = client.channels.cache.get(data.textChannel);
-                    const guild = client.guilds.cache.get(data._id);
-                    const voice = client.channels.cache.get(data.voiceChannel);
-                    if (!guild || !text || !voice) return data.delete();
-                    try {
-                        await client.dispatcher.createPlayer({
-                            guildId: guild.id,
-                            textId: text.id,
-                            voiceId: voice.id,
-                            deaf: true,
-                            shardId: guild.shardId,
-                        });
-                    } catch (e) {
-                        client.console.log(`Failed to create player in ${guild.id}: ${e.message}`, "error");
-                    }
-                }, index * 5000);
+  const text = client.channels.cache.get(data.textChannel);
+  const guild = client.guilds.cache.get(data._id);
+  const voice = client.channels.cache.get(data.voiceChannel);
+  if (!guild || !text || !voice || voice.full || !voice.joinable) return data.delete();
+
+  try {
+    const existingPlayer = client.dispatcher.players.get(guild.id);
+    if (existingPlayer) return;
+
+    const player = await client.dispatcher.createPlayer({
+      guildId: guild.id,
+      textId: text.id,
+      voiceId: voice.id,
+      deaf: true,
+      shardId: guild.shardId,
+    });
+
+    player.once("playerStart", () => {
+      client.console.log(`Successfully rejoined player in ${guild.id}`, "player");
+    });
+  } catch (e) {
+    client.console.log(`Failed to create player in ${guild.id}: ${e.message}`, "error");
+  }
+}, index * 5000);
             }
         });
         // Rebuild control panel UI in setup servers
