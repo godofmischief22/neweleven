@@ -1,5 +1,5 @@
 const db = require("../../Models/247"),
-    db2 = require("../../Models/Setup");
+      db2 = require("../../Models/Setup");
 
 module.exports = {
     name: "ready",
@@ -11,7 +11,7 @@ module.exports = {
         client.console.log(`Logged in as ${client.user.tag}`, "api");
 
         // Wait for Lavalink node to be ready before resuming queues
-        client.dispatcher.kazagumo.shoukaku.on("ready", async (name) => {
+        client.dispatcher.shoukaku.on("ready", async (name) => {
             client.console.log(`[Node] ${name} is ready! Resuming queues...`, "player");
 
             const maindata = await db.find();
@@ -29,7 +29,7 @@ module.exports = {
                     if (!guild || !text || !voice) return data.delete();
 
                     try {
-                        await client.dispatcher.kazagumo.createPlayer({
+                        await client.dispatcher.createPlayer({
                             guildId: guild.id,
                             textId: text.id,
                             voiceId: voice.id,
@@ -78,25 +78,5 @@ module.exports = {
                                 client.button().setCustomId("rewindbut_but").setEmoji("<:supremereplay:1366015723394306070>").setStyle(client.config.button.grey).setDisabled(true),
                                 client.button().setCustomId("autoplay_but").setEmoji("<:stolen_emoji:1366010164272037981>").setStyle(client.config.button.grey).setDisabled(true),
                                 client.button().setCustomId("stop_but").setEmoji("<:stolen_emoji:1366010164272037981>").setStyle(client.config.button.grey).setDisabled(true),
-                                client.button().setCustomId("loopmodesbut_but").setEmoji("<:supremeloop:1366016024528289893>").setStyle(client.config.button.grey).setDisabled(true),
-                                client.button().setCustomId("forward_but").setEmoji("<:supremenext:1366015854256590849>").setStyle(client.config.button.grey).setDisabled(true),
-                            ])
-                        ];
-
-                        await message.edit({
-                            content: "__**Join a voice channel and queue songs by name/url.**__\n\n",
-                            embeds: [embed1],
-                            components,
-                        }).catch(() => {});
-                    } else {
-                        data.channel = null;
-                        data.message = null;
-                        await data.save();
-                    }
-                } else {
-                    await db2.deleteOne({ _id: data._id });
-                }
-            }
-        });
-    },
-};
+                                client
+                                
