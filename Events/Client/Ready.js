@@ -29,7 +29,7 @@ module.exports = {
                     if (!guild || !text || !voice) return data.delete();
 
                     try {
-                        await client.dispatcher.createPlayer({
+                        await client.dispatcher.kazagumo.createPlayer({
                             guildId: guild.id,
                             textId: text.id,
                             voiceId: voice.id,
@@ -91,7 +91,7 @@ module.exports = {
                     } else {
                         data.channel = null;
                         data.message = null;
-                        data.save();
+                        await data.save();
                     }
                 } else {
                     await db2.deleteOne({ _id: data._id });
