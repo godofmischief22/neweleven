@@ -9,13 +9,23 @@ const {
     StringSelectMenuBuilder,
     ActionRowBuilder,
 } = require("discord.js");
-
 const { connect, connection, set } = require("mongoose");
 const Utils = require("../Handler/Utils");
 const { Api } = require("@top-gg/sdk");
 const { Kazagumo } = require("kazagumo");
 const { Connectors } = require("shoukaku");
 const PlayerExtends = require("./DispatcherExtend");
+
+const Intents = [
+    GatewayIntentBits.Guilds,
+    GatewayIntentBits.GuildMessages,
+    GatewayIntentBits.GuildMembers,
+    GatewayIntentBits.GuildInvites,
+    GatewayIntentBits.GuildVoiceStates,
+    GatewayIntentBits.GuildWebhooks,
+    GatewayIntentBits.MessageContent,
+    GatewayIntentBits.DirectMessages,
+];
 
 class Main extends Client {
     constructor() {
@@ -42,6 +52,7 @@ class Main extends Client {
                 Partials.User,
                 Partials.Reaction,
             ],
+            ws: Intents,
             presence: {
                 activities: [{ name: "1help | 1play", type: ActivityType.Listening }],
                 status: "idle",
@@ -49,8 +60,6 @@ class Main extends Client {
             restTimeOffset: 0,
             restRequestTimeout: 20000,
         });
-
-        // Collections
         this.Commands = new Collection();
         this.premiums = new Collection();
         this.ButtonInt = new Collection();
@@ -58,23 +67,19 @@ class Main extends Client {
         this.ButCooldown = new Collection();
         this.ChannelCoolDown = new Collection();
         this.Aliases = new Collection();
-
-        // Config & other properties
         this.config = require("../Config");
         this.prefix = this.config.Prefix;
         this.color = this.config.EmbedColor;
         this.owners = this.config.Owners;
-        this.np = ["1131806691969728593"];
-        this.dispatcher = null;
+        this.np = [
+            "1131806691969728593",
+        ];
+        this.dispatcher;
         this.Topgg = new Api(this.config.Api.Topgg);
         this.console = require("../Utility/Console");
         this.emoji = require("../Handler/Emoji");
         this.util = new Utils(this);
-
-        // Ensure token is set
         if (!this.token) this.token = this.config.Token;
-
-        // Start core services
         this._loadPlayer();
         this._connectMongodb();
         this.connect();
@@ -118,6 +123,7 @@ class Main extends Client {
                 defaultSearchEngine: "youtube_music",
                 extends: { player: PlayerExtends },
                 send: (guildId, payload) => {
+                    this.client = this;
                     const guild = this.guilds.cache.get(guildId);
                     if (guild) guild.shard.send(payload);
                 },
@@ -131,6 +137,7 @@ class Main extends Client {
                 restTimeout: 10000,
             }
         );
+        return this.dispatcher;
     }
 
     async _connectMongodb() {
@@ -142,18 +149,15 @@ class Main extends Client {
             family: 4,
             useUnifiedTopology: true,
         };
-
         if ([1, 2, 99].includes(connection.readyState)) return;
         connect(this.config.MongoData, dbOptions);
         this.console.log("Successfully connected to MongoDB.", "api");
     }
 
-    connect() {
+    async connect() {
         super.login(this.token);
-
-        // Load handlers
-        ["Button", "Message", "Events", "Node", "Dispatcher"].forEach((handler) => {
-            require(`../Scripts/${handler}`)(this);
+        ["Button", "Message", "Events", "Node", "Dispatcher"].forEach((files) => {
+            require(`../Scripts/${files}`)(this);
         });
     }
 }
