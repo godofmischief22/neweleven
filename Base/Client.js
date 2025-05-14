@@ -16,17 +16,6 @@ const { Kazagumo } = require("kazagumo");
 const { Connectors } = require("shoukaku");
 const PlayerExtends = require("./DispatcherExtend");
 
-const Intents = [
-    GatewayIntentBits.Guilds,
-    GatewayIntentBits.GuildMessages,
-    GatewayIntentBits.GuildMembers,
-    GatewayIntentBits.GuildInvites,
-    GatewayIntentBits.GuildVoiceStates,
-    GatewayIntentBits.GuildWebhooks,
-    GatewayIntentBits.MessageContent,
-    GatewayIntentBits.DirectMessages,
-];
-
 class Main extends Client {
     constructor() {
         super({
@@ -35,7 +24,16 @@ class Main extends Client {
                 parse: ["users", "roles", "everyone"],
                 repliedUser: false,
             },
-            intents: Intents,
+            intents: [
+                GatewayIntentBits.Guilds,
+                GatewayIntentBits.GuildMessages,
+                GatewayIntentBits.GuildMembers,
+                GatewayIntentBits.GuildInvites,
+                GatewayIntentBits.GuildVoiceStates,
+                GatewayIntentBits.GuildWebhooks,
+                GatewayIntentBits.MessageContent,
+                GatewayIntentBits.DirectMessages,
+            ],
             partials: [
                 Partials.Channel,
                 Partials.GuildMember,
@@ -45,29 +43,6 @@ class Main extends Client {
             ],
             restTimeOffset: 0,
             restRequestTimeout: 20000,
-        });
-
-        this.once("ready", () => {
-            const activities = [
-                { name: ".help | .play", type: ActivityType.Listening },
-                { name: "Music🎶", type: ActivityType.Playing },
-                { name: "Eleven HQ", type: ActivityType.Watching },
-            ]
-            const activities = [
-    { name: "Music🎶", type: ActivityType.Playing },
-    { name: ".help | .play", type: ActivityType.Listening },
-    { name: "Eleven HQ", type: ActivityType.Watching },
-];
-
-
-            let i = 0;
-            setInterval(() => {
-                this.user?.setPresence({
-                    activities: [activities[i % activities.length]],
-                    status: statuses[i % statuses.length],
-                });
-                i++;
-            }, 15000); // every 15 seconds
         });
 
         this.Commands = new Collection();
@@ -88,8 +63,10 @@ class Main extends Client {
         this.emoji = require("../Handler/Emoji");
         this.util = new Utils(this);
         if (!this.token) this.token = this.config.Token;
+
         this._loadPlayer();
         this._connectMongodb();
+        this._setPresence();
         this.connect();
     }
 
@@ -166,6 +143,24 @@ class Main extends Client {
         super.login(this.token);
         ["Button", "Message", "Events", "Node", "Dispatcher"].forEach((files) => {
             require(`../Scripts/${files}`)(this);
+        });
+    }
+
+    _setPresence() {
+        this.once("ready", () => {
+            const activities = [
+                { name: ".help | .play", type: ActivityType.Playing },
+                { name: "Eleven HQ", type: ActivityType.Watching },
+                { name: "Music", type: ActivityType.Playing },
+            ];
+            let i = 0;
+            setInterval(() => {
+                this.user.setPresence({
+                    activities: [activities[i % activities.length]],
+                    status: "online", // change to "idle" or "dnd" if needed
+                });
+                i++;
+            }, 15000); // every 15 seconds
         });
     }
 }
