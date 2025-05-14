@@ -157,7 +157,7 @@ class Main extends Client {
             setInterval(() => {
                 this.user.setPresence({
                     activities: [activities[i % activities.length]],
-                    status: "online", // change to "idle" or "dnd" if needed
+                    status: "Playing", // change to "idle" or "dnd" if needed
                 });
                 i++;
             }, 15000); // every 15 seconds
